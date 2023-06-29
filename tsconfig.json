@@ -23,6 +23,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/(site)/register/page.jsx",
+    "app/page.jsx",
+    "app/layout.jsx",
+    "app/components/calendar.tsx",
+    "app/api/day/route.js"
+  ],
   "exclude": ["node_modules"]
 }
