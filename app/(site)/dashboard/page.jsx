@@ -65,7 +65,7 @@ export default function Dashboard() {
                   <button
                     onClick={() => router.push("/panels")}
                     type="submit"
-                    className="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="mt-10 flex items-center justify-center rounded-md border border-transparent bg-emerald-700 px-8 py-3 text-base font-medium text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                   >
                     Find a panel
                   </button>
@@ -132,7 +132,7 @@ export default function Dashboard() {
                   <button
                     onClick={() => router.push("/panels")}
                     type="submit"
-                    className="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="mt-10 flex items-center justify-center rounded-md border border-transparent bg-emerald-700 px-8 py-3 text-base font-medium text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                   >
                     Find a panel
                   </button>

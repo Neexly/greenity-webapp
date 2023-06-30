@@ -99,14 +99,14 @@ const Reservation = () => {
               axios
                 .post("/api/reservation", data)
                 .then(() => {
-                  toast.success("Réservation confirmée !");
+                  toast.success("Reservation confirmed !");
                   setTimeout(() => {
                     console.log("Delayed for 3 seconds.");
                   }, 3000);
                   router.push("/dashboard");
                 })
                 .catch(() => {
-                  toast.error("Une erreur s'est produite !");
+                  toast.error("An erreur occured !");
                   setTimeout(() => {
                     console.log("Delayed for 3 seconds.");
                   }, 3000);
@@ -176,7 +176,7 @@ const Reservation = () => {
                   />
                 </dl>
                 <button
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-6"
+                  className="flex w-full justify-center rounded-md bg-emerald-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-6"
                   onClick={handleSubmit}
                 >
                   Submit reservation
@@ -200,7 +200,7 @@ const Reservation = () => {
                       alt="Image preview"
                     />
                     <button
-                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-4"
+                      className="flex w-full justify-center rounded-md bg-emerald-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-4"
                       onClick={handleConfirmImage}
                     >
                       Confirm image
