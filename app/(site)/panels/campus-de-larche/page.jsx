@@ -41,16 +41,16 @@ export default function Panels() {
                 />
               </div>
               <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                {/* <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                   <img
-                    src="https://res.cloudinary.com/ddbzkz1of/image/upload/v1687929836/campus-de-larche-3_jwojcw.png"
+                    src="https://res.cloudinary.com/ddbzkz1of/image/upload/v1688094083/logo_iim_fd_couleur_ovc35v.jpg"
                     alt="Model wearing plain black basic tee."
                     className="h-full w-full object-cover object-center"
                   />
-                </div>
+                </div> */}
                 <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                   <img
-                    src="https://res.cloudinary.com/ddbzkz1of/image/upload/v1686284967/borne-greenity-4_rr9pe5.jpg"
+                    src="https://res.cloudinary.com/ddbzkz1of/image/upload/v1688094089/logo_pulv_cirnbi.png"
                     alt="Model wearing plain gray basic tee."
                     className="h-full w-full object-cover object-center"
                   />

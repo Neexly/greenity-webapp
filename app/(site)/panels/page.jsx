@@ -47,7 +47,7 @@ export default function Panels() {
               ))} */}
 
               <div
-                className="group relative"
+                className="group relative cursor-pointer"
                 onClick={() => router.push("/panels/campus-de-larche")}
               >
                 <div className="min-h-80 aspect-h-1 aspect-w-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
@@ -60,7 +60,7 @@ export default function Panels() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <a href="#">
+                      <a>
                         <span
                           aria-hidden="true"
                           className="absolute inset-0"
@@ -76,7 +76,7 @@ export default function Panels() {
                 </div>
               </div>
 
-              <div
+              {/* <div
                 className="group relative"
                 onClick={() => router.push("/panels/campus-de-larche")}
               >
@@ -90,7 +90,7 @@ export default function Panels() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <a href="#">
+                      <a onClick={() => router.push("/XXX")}>
                         <span
                           aria-hidden="true"
                           className="absolute inset-0"
@@ -104,7 +104,7 @@ export default function Panels() {
                   </div>
                   <p className="text-sm font-medium text-gray-900">0,00€</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* <!-- More products... --> */}
             </div>

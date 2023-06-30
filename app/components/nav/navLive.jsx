@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 const NavLive = () => {
+  const router = useRouter();
   return (
     <>
       <nav className="bg-gray-800">
@@ -10,27 +13,27 @@ const NavLive = () => {
               <div className="flex-shrink-0">
                 <img
                   className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
+                  src="https://res.cloudinary.com/ddbzkz1of/image/upload/v1688097022/logo-blanc-greenity_gt2zsi.png"
+                  alt="Logo Greenity"
                 />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
-                    href="/dashboard"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    onClick={() => router.push("/dashboard")}
+                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer"
                   >
                     Dashboard
                   </a>
                   <a
-                    href="/panels"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    onClick={() => router.push("/panels")}
+                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer"
                   >
                     All our panels
                   </a>
                   <a
-                    href="#"
-                    className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    onClick={() => router.push("/live")}
+                    className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white cursor-pointer"
                     aria-current="page"
                   >
                     Watch live
@@ -44,20 +47,20 @@ const NavLive = () => {
         <div className="md:hidden" id="mobile-menu">
           <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             <a
-              href="/dashboard"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              onClick={() => router.push("/dashboard")}
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer"
             >
               Dashboard
             </a>
             <a
-              href="/panels"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+              onClick={() => router.push("/panels")}
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer"
             >
               All our panels
             </a>
             <a
-              href="#"
-              className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+              onClick={() => router.push("/live")}
+              className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white cursor-pointer"
               aria-current="page"
             >
               Watch live

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const socket = new WebSocket("ws://localhost:8080");
+const socket = new WebSocket("ws://greenity.vercel.app"); // "ws://localhost:8080"
 
 function CampusDeLarche() {
   const [imageUrl, setImageUrl] = useState("");
