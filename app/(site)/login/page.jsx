@@ -134,7 +134,7 @@ export default function Login() {
             Not a member ?{" "}
             <a
               href="/register"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold leading-6 text-emerald-700 hover:text-emerald-600"
             >
               Create an account
             </a>

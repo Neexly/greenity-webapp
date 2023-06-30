@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { isSameDay } from "date-fns";
 
 import ReactCalendar from "react-calendar";
 import NavPanels from "../../../../components/nav/navPanels";
@@ -246,7 +247,6 @@ const Step1 = ({ onSelect }) => {
 
 const Step2 = ({ selectedDate, onSelect }) => {
   const createAvailableSlots = (selectedDate, allReservations) => {
-    // Heures de la journée disponibles
     const hours = [
       "08:00",
       "08:30",
@@ -274,25 +274,17 @@ const Step2 = ({ selectedDate, onSelect }) => {
       "19:30",
     ];
 
-    // Convertir la date sélectionnée en objet Date pour la comparaison
     const selectedDateTime = new Date(selectedDate);
+    const isToday = isSameDay(selectedDateTime, new Date()); // Vérifier si c'est aujourd'hui
 
-    // Filtrer les réservations pour la journée sélectionnée
     const reservationsForSelectedDate = allReservations.filter(
       (reservation) => {
         const reservationDateTime = new Date(reservation.startDate);
-        return (
-          reservationDateTime.getFullYear() ===
-            selectedDateTime.getFullYear() &&
-          reservationDateTime.getMonth() === selectedDateTime.getMonth() &&
-          reservationDateTime.getDate() === selectedDateTime.getDate()
-        );
+        return isSameDay(reservationDateTime, selectedDateTime);
       }
     );
 
-    // Créer un tableau des créneaux horaires disponibles
     const availableSlotsForSelectedDate = hours.filter((hour) => {
-      // Vérifier si le créneau horaire est déjà réservé
       const isReserved = reservationsForSelectedDate.some((reservation) => {
         const reservationDateTime = new Date(reservation.startDate);
         const reservationHour = reservationDateTime.getHours();
@@ -303,7 +295,22 @@ const Step2 = ({ selectedDate, onSelect }) => {
           reservationMinute === Number(slotMinute)
         );
       });
-      return !isReserved;
+
+      if (isToday) {
+        const currentDateTime = new Date();
+        const [currentHour, currentMinute] = hour.split(":");
+        const slotEndTime = new Date(
+          selectedDateTime.getFullYear(),
+          selectedDateTime.getMonth(),
+          selectedDateTime.getDate(),
+          Number(currentHour),
+          Number(currentMinute) + 30
+        );
+
+        return !isReserved && slotEndTime > currentDateTime;
+      } else {
+        return !isReserved;
+      }
     });
 
     return availableSlotsForSelectedDate;

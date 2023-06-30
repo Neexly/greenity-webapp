@@ -136,7 +136,7 @@ export default function Register() {
             Already a member ?{" "}
             <a
               href="/login"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold leading-6 text-emerald-700 hover:text-emerald-600"
             >
               Login to my account
             </a>
