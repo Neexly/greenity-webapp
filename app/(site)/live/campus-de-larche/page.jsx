@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-const socket = new WebSocket("ws://greenity.vercel.app"); // "ws://localhost:8080"
-
 function CampusDeLarche() {
   const [imageUrl, setImageUrl] = useState("");
 
@@ -14,9 +12,6 @@ function CampusDeLarche() {
         console.log(data);
         if (data.imageUrl) {
           setImageUrl(data.imageUrl);
-
-          // Envoi du message WebSocket avec la nouvelle URL d'image
-          socket.send(imageUrl);
         }
       })
       .catch((error) => {
@@ -26,20 +21,9 @@ function CampusDeLarche() {
 
   useEffect(() => {
     const interval = setInterval(fetchCurrentReservations, 60000); // Lancer toutes les minutes
-
-    socket.onmessage = function (event) {
-      const newImageUrl = event.data;
-      // Mettre à jour l'image avec la nouvelle URL
-      if (newImageUrl) {
-        setImageUrl(newImageUrl);
-      }
-    };
-
     fetchCurrentReservations(); // Appel initial à la récupération des réservations
 
     return () => {
-      // Fermez la connexion WebSocket lorsque le composant est démonté
-      socket.disconnect();
       clearInterval(interval);
     };
   }, []);
@@ -54,6 +38,65 @@ function CampusDeLarche() {
 }
 
 export default CampusDeLarche;
+
+// "use client";
+
+// import { useEffect, useState } from "react";
+
+// const socket = new WebSocket("ws://greenity.vercel.app"); // "ws://localhost:8080"
+
+// function CampusDeLarche() {
+//   const [imageUrl, setImageUrl] = useState("");
+
+//   const fetchCurrentReservations = () => {
+//     fetch("/api/currentReservation")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log(data);
+//         if (data.imageUrl) {
+//           setImageUrl(data.imageUrl);
+
+//           // Envoi du message WebSocket avec la nouvelle URL d'image
+//           socket.send(imageUrl);
+//         }
+//       })
+//       .catch((error) => {
+//         console.error("PROBLEME API", error);
+//       });
+//   };
+
+//   useEffect(() => {
+//     const interval = setInterval(fetchCurrentReservations, 60000); // Lancer toutes les minutes
+
+//     socket.onmessage = function (event) {
+//       const newImageUrl = event.data;
+//       // Mettre à jour l'image avec la nouvelle URL
+//       if (newImageUrl) {
+//         setImageUrl(newImageUrl);
+//       }
+//     };
+
+//     fetchCurrentReservations(); // Appel initial à la récupération des réservations
+
+//     return () => {
+//       // Fermez la connexion WebSocket lorsque le composant est démonté
+//       socket.disconnect();
+//       clearInterval(interval);
+//     };
+//   }, []);
+
+//   return (
+//     <div className="w-screen h-screen bg-black">
+//       <div className="flex items-center h-full">
+//         <img className="w-1920" src={imageUrl} alt="Panel image" />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default CampusDeLarche;
+
+// ------------------------------------------------------------------------------------
 
 // "use client";
 
