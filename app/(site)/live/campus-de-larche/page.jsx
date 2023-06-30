@@ -6,7 +6,7 @@ function CampusDeLarche() {
   const [imageUrl, setImageUrl] = useState("");
 
   const fetchCurrentReservations = () => {
-    fetch("/api/currentReservation")
+    fetch("/api/currentReservation", { cache: "no-store" })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
